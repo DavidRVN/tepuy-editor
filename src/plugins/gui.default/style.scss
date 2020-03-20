@@ -96,20 +96,6 @@ footer {
         min-width: 15px;
         font-size: 80%;
     }
-
-    .tpe-menu-right {
-        float: right;
-        & > div {
-            display: flex;
-            align-items: center;
-        }
-    }
-}
-
-.tpe-avatar {
-    //width: 18px;
-    height: 18px;
-    border-radius: 50%;
 }
 
 .tpe-list {
@@ -117,14 +103,4 @@ footer {
     .tpe-list-item {
         cursor: pointer;
     }
-<<<<<<< Updated upstream
 }
-=======
-}
-
-#ui-id-18{
-    float: right;
-   // padding-top: 15px;
-   z-index: 99;
-}
->>>>>>> Stashed changes

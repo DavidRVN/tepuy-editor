@@ -33,17 +33,6 @@
         license:'GPL'
     }];
 
-<<<<<<< Updated upstream
-=======
-    var userData ={
-            id:'1',
-            userName:'David.Rios',
-            password:'123456',
-            name:'David Rios',
-            profile_image:'https://picsum.photos/50/50?t=4'
-        };
-
->>>>>>> Stashed changes
     var fakeApi = {
         getTemplates: function (filter) {
           return templates.filter(item => {

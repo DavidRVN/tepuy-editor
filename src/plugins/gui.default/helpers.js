@@ -16,7 +16,6 @@ const iconMap = {
     "resources": "archive",
     "log": "clipboard",
     "share": "share",
-    "profile_logout": "sign-out-alt",
 };
 
 export const helpers = {

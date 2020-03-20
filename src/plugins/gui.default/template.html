@@ -2,16 +2,6 @@
     <header>
         <ul id="tpe-menubar" data-link="{menu menuAction}">
             {^{for menu tmpl="#gui-default-menu" ~idPrefix="menu." /}}
-            <li data-id="profile" class="tpe-menu-right">
-              <div >
-                <img class="tpe-avatar" src="{{:user.profile_image}}" alt="">{{:user.name}}
-              </div>
-              <ul>
-                <li data-id="profile_logout">
-                  <div>{{:~icon('profile_logout')}}{{:~translate('menu.profile_logout')}}</div>
-                </li>
-              </ul>
-            </li> 
         </ul>
     </header>
     <section>
@@ -71,8 +61,4 @@
     </ul>
   {{/if}}
 </li>
-<<<<<<< Updated upstream
 </script>
-=======
-</script>
->>>>>>> Stashed changes

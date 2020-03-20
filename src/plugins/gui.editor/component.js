@@ -36,7 +36,6 @@ export class GuiEditor {
         //Register callbacks
         App.registerHook('gui_menu_file_exit', this.close.bind(this));
         App.registerHook('gui_menu_help_about', this.about.bind(this));
-        App.registerHook('gui_menu_profile_logout', this.logout.bind(this));
     }
 
     getSidebarData() {
@@ -67,9 +66,4 @@ export class GuiEditor {
     about() {
         console.log("About");
     }
-    logout(){
-        console.log("Salir");
-        App.exit();
-    }
-
 }

@@ -93,10 +93,6 @@ class App {
             App.i18n = i18next; //Give the App object access to the while translation system
         });
     }
-
-    exit(){
-       window.location.href = 'https://moodle.org/';
-    }
 }
 
 const app = new App();

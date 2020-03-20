@@ -17,8 +17,6 @@ export class GuiDefault {
             registerMenuItem: this.registerMenuItem.bind(this)
         };
         App.invokeHook('gui_menu_initialize');
-        this.user = App.api.call('getUserData');
-        console.log(this.user);
         template.link(App.$container, this);
         App.ui.$menu = $('#tpe-menubar');
         App.ui.$sidebar = $('#tpe-sidebar');
@@ -36,16 +34,6 @@ export class GuiDefault {
             },
         });
         $(App.container).find('header').localize();
-<<<<<<< Updated upstream
-=======
-
-
-        //UserData
-        //console.log(App.api.call('getUserData'));
-        //var data = App.api.call('getUserData');
-        $('#profile').localize();     
-        /*pageTmpl.link("#profile",data);*/
->>>>>>> Stashed changes
     }
 
     menuAction(ev, ui) {
@@ -66,7 +54,5 @@ export class GuiDefault {
         }
         $.observable(container).insert(menuItem);
     }
-
-
 
 }
