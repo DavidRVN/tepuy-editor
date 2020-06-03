@@ -191,6 +191,8 @@
     "editTitle": "Editar nombre de la carpeta",
     "textButtonFolder": "Crear carpeta",
     "deleteConfirmation": "¿Está seguro de eliminar la carpeta <i>{{folder}}</i>? <br/> No se podrá recuperar la información que esta contiene.",
-    "deleteTitle": "Eliminar Carpeta"
+    "deleteTitle": "Eliminar Carpeta",
+    "editConfirmation": "Cambiar nombre",
+    "editArchive": "Editar nombre del archivo"
   }
 }

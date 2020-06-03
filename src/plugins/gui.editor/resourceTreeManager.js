@@ -172,7 +172,7 @@ export class ResourceTreeManager {
                 }
                 if (type != 'root') {
                     actions.edit = {
-                        id: 'rename',
+                        id: 'renameFolder',
                         label: App.i18n.t('resources.rename'),
                         action: action,
                         icon: 'fas fa-pen'
@@ -495,5 +495,57 @@ export class ResourceTreeManager {
                 });
             }
         });
+    }
+
+
+    renameFolder(){
+        const data = this.node;       
+        const model = { isNew: true, title: '', appendAt: 'end', refPos: data.children.length-1 };  
+        model.label = 'newFolder';
+        model.acceptText = 'newFolder.editConfirmation';
+        this.rename(model, data.children);
+}
+
+    rename(model, children){   
+
+        const builder = App.ui.components.FormBuilder;
+        const validators = App.validation.validators;
+        const labelPrefix = model.label;
+        const dataP = this.node;
+        console.log(dataP.text);
+      
+        const title = labelPrefix + (model.isNew ? '.editArchive' : '.editArchive');
+
+        const references = children.reduce((result, item, index) => {
+            if (item != model.id) {
+                const node = this.tree.get_node(item);
+                result.push({ value: index, label: node.text })
+            }
+            return result;
+        }, []);
+
+        const controls = {
+            isNew: ['boolean', model.isNew, { visible: false }],
+            title: ['text', dataP.text , model.title, { label: labelPrefix+'.editArchive', validators: [validators.required, validators.maxLength(256) ], maxLength: 256, default: true }],
+        };
+
+        if (references && references.length) {
+            const refPosVisible = () => /^(after|before)$/.test(formConfig.value.appendAt);           
+            controls['refPos'] = ['optionList', model.refPos, { label: labelPrefix+'.refPos', options: references, visible: refPosVisible, depends: ['appendAt'] }];
+        }
+
+        const formConfig = builder.group(controls);
+        const titleText = App.i18n.t(title);
+        const manager = new App.ui.components.FormManager({
+            formConfig, titleText,
+            acceptText: model.acceptText
+        });
+
+        manager.openDialog().then(form => {         
+            this.tree.rename_node(dataP, form.title);
+        }).catch((err) => {
+            console.log(err);
+        });
+        
     }
 }
